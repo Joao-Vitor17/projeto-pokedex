@@ -10,6 +10,19 @@ async function getPokemons() {
     return null;
 };
 
+async function getDetalhePokemon(url) {
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        return data;
+    } catch(error) {
+        console.error("Erro ao buscar detalhe do pokémon:", error);
+    };
+
+    return null;
+};
+
 export {
-    getPokemons
+    getPokemons,
+    getDetalhePokemon,
 };
