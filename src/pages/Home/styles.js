@@ -5,6 +5,7 @@ const Container = styled.div`
 
 const Header = styled.header`
     position: fixed;
+    z-index: 10;
     background-color: #FFFFFF;
     border-bottom: 1px solid #F2F2F2;
     display: flex;
@@ -14,7 +15,14 @@ const Header = styled.header`
     width: 100%;
 `;
 
-const Info = styled.div`
+const ContainerCardsPokemon = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0;
+`;
+
+const ContentPage = styled.div`
     padding-top: 104px;
     margin: 0 16px;
 `;
@@ -22,5 +30,6 @@ const Info = styled.div`
 export {
     Header,
     Container,
-    Info
+    ContentPage,
+    ContainerCardsPokemon,
 };

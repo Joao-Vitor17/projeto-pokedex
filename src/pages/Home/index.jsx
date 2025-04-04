@@ -1,37 +1,39 @@
 import { useEffect, useState } from "react";
 import { getPokemons } from "../../services/pokemon";
-import { Container, Header, Info } from "./styles";
+import { Container, Header, ContentPage, ContainerCardsPokemon } from "./styles";
 import BarraPesquisa from "../../components/BarraPesquisa";
 import BotaoFiltro from "../../components/BotaoFiltro";
+import CardPokemon from "../../components/CardPokemon";
 
 function Home() {
-    const [listaPokemon, setListaPokemon] = useState([]);
+    const [listaPokemon, setListaPokemon] = useState(null);
 
     useEffect(() => {
+        async function buscarPokemons() {
+            const results = await getPokemons();
+            setListaPokemon(results);
+        }
         buscarPokemons();
-    }, [listaPokemon]);
-
-    async function buscarPokemons() {
-        const results = await getPokemons();
-        setListaPokemon(results);
-    }
-
-    if (!listaPokemon.length) return <p>Loading...</p>
+    }, []);
+    
+    // if (!listaPokemon) return <p>Carregando...</p>
 
     return (
         <Container>
             <Header>
                 <BarraPesquisa />
             </Header>
-            <Info>
-                <BotaoFiltro/>
-                <h1>Pokédex</h1>
-                <ul>
-                    {listaPokemon.map((pokemon, index) => (
-                        <li key={index}>{pokemon.name}</li>
-                    ))}
-                </ul>
-            </Info>
+            <ContentPage>
+                <BotaoFiltro />
+                <ContainerCardsPokemon>
+                {
+                    !listaPokemon ? <p>Carregando...</p> : 
+                    listaPokemon.map(pokemon => (
+                        <CardPokemon url={pokemon.url} />
+                    )) 
+                }
+                </ContainerCardsPokemon>
+            </ContentPage>
         </Container>
     );
 };
