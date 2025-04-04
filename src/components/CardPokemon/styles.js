@@ -3,7 +3,7 @@ import styled from "styled-components";
 const CardContainer = styled.div`
     height: 102px;
     width: 100%;
-    background-color: ${({$colorCard }) => $colorCard};
+    background-color: ${({ $colorCard }) => $colorCard};
     display: flex;
     justify-content: space-between;
     border-radius: 15px;
@@ -44,6 +44,42 @@ const NomePokemon = styled.p`
     font-size: 21px;
     font-weight: 600;
     color: black;
+    margin-top: -3px;
+`;
+
+const TiposPokemonContainer = styled.div`
+    display: flex;
+    gap: 4px;
+    margin-top: 3px;
+`;
+
+const TipoPokemon = styled.div`
+    background-color: var(--color-${({ $tipo }) => $tipo});
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 48.61px;
+    padding: 0 6px;
+    height: 26.12px;
+    font-size: 11px;
+    font-weight: 500;
+    gap: 6px;
+`;
+
+const ContainerIconElemento = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+`;
+
+const IconElemento = styled.img`
+    height: 13px;
+    width: 13px;
+    filter: var(--color-filter-${({ $tipo }) => $tipo});
 `;
 
 export {
@@ -54,4 +90,8 @@ export {
     NumeracaoPokemon,
     NomePokemon,
     InfosPokemon,
+    TiposPokemonContainer,
+    TipoPokemon,
+    ContainerIconElemento,
+    IconElemento,
 };
