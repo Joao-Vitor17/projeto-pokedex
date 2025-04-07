@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPokemons } from "../../services/pokemon";
-import { Container, Header, ContentPage, ContainerCardsPokemon } from "./styles";
+import { Container, Header, ContentPage, ContainerCardsPokemon, IconLupaPesquisa } from "./styles";
 import BarraPesquisa from "../../components/BarraPesquisa";
 import BotaoFiltro from "../../components/BotaoFiltro";
 import CardPokemon from "../../components/CardPokemon";
@@ -21,6 +21,7 @@ function Home() {
     return (
         <Container>
             <Header>
+                <IconLupaPesquisa src="lupa-pesquisa.svg" />
                 <BarraPesquisa />
             </Header>
             <ContentPage>

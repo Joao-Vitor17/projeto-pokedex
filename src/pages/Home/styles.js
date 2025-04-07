@@ -3,6 +3,14 @@ import styled from "styled-components";
 const Container = styled.div`
 `;
 
+const IconLupaPesquisa = styled.img`
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 0;
+    padding-left: 31px;
+`;
+
 const Header = styled.header`
     position: fixed;
     z-index: 10;
@@ -32,4 +40,5 @@ export {
     Container,
     ContentPage,
     ContainerCardsPokemon,
+    IconLupaPesquisa,
 };
