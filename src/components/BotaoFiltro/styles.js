@@ -12,6 +12,11 @@ const BotaoBase = styled.button`
     width: 100%;
     height: 42px;
     gap: 8px;
+    transition: transform 0.1s ease;
+
+    &:active {
+        transform: scale(0.95);
+    }
 `;
 
 const Container = styled.div`
@@ -22,8 +27,8 @@ const Container = styled.div`
 const BotaoTipo = styled(BotaoBase)``;
 const BotaoNumero = styled(BotaoBase)``;
 
-export{
+export {
     BotaoTipo,
     BotaoNumero,
-    Container
+    Container,
 };
