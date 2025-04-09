@@ -7,6 +7,11 @@ const CardContainer = styled.div`
     display: flex;
     justify-content: space-between;
     border-radius: 15px;
+    transition: transform 0.1s ease;
+
+    &:active {
+        transform: scale(0.95);
+    }
 `;
 
 const ContainerImgPokemon = styled.div`
