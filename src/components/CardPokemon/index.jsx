@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { getDetalhePokemon } from "../../services/pokemon";
 import { CardContainer, ContainerIconElemento, ContainerImgPokemon, IconElemento, ImgElemento, ImgPokemon, InfosPokemon, NomePokemon, NumeracaoPokemon, TipoPokemon, TiposPokemonContainer } from "./styles";
 import { getColorElementoPokemon, getNumeracaoPokemon } from "../../controllers/pokemonController";
+import { useNavigate } from "react-router-dom";
 
 function CardPokemon({ url }) {
     const [pokemon, setPokemon] = useState(null);
+    const nav = useNavigate();
 
     useEffect(() => {
         async function buscarPokemon() {
@@ -18,8 +20,14 @@ function CardPokemon({ url }) {
         return <p>Carregando...</p>;
     }
 
+    function irParaDescricaoPoke() {
+        setTimeout(() => {
+            nav(`/${pokemon.name}`)
+        }, 300);
+    }
+
     return (
-        <CardContainer $colorCard={`${getColorElementoPokemon(pokemon.types[0].type.name)}1D`}>
+        <CardContainer $colorCard={`${getColorElementoPokemon(pokemon.types[0].type.name)}1D`} onClick={irParaDescricaoPoke}>
             <InfosPokemon>
                 <NumeracaoPokemon>
                     {getNumeracaoPokemon(pokemon.id.toString())}
