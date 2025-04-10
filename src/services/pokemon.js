@@ -22,7 +22,20 @@ async function getDetalhePokemon(url) {
     return null;
 };
 
+async function getPokemonPorNome(nome) {
+    try {
+        const res = await fetch("https://pokeapi.co/api/v2/pokemon/" + nome);
+        const data = await res.json();
+        return data;
+    } catch(error) {
+        console.error("Erro ao buscar pokémon pelo nome:", error);
+    };
+
+    return null;
+};
+
 export {
     getPokemons,
     getDetalhePokemon,
+    getPokemonPorNome,
 };
